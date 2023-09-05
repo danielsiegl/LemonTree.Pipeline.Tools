@@ -32,6 +32,10 @@ jobs:
                 while (Test-Path Alias:curl) {Remove-Item Alias:curl} #remove the alias binding from curl to Invoke-WebRequest
                 curl "-u${{secrets.NEXUSAUTHENTICATION}}" -T ./${{inputs.binary-name}} $targetUrl 
 
+            - name: Generate the artifacts
+              if: github.event.release.created
+              uses: skx/github-action-build@master
+              
             - name: Upload the artifacts to the release
               if: github.event.release.created
               uses: skx/github-action-publish-binaries@master
