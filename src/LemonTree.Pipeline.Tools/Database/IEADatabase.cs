@@ -8,16 +8,16 @@ namespace LemonTree.Pipeline.Tools.Database
 
         bool Compact(string source, string destination);
 
-        int RunSQLnonQuery(string sql);
+        int RunSQLnonQuery(string sqlQuery);
 
-        long RunSQLQueryScalar(string sql);
+        long RunSQLQueryScalar(string sqlQuery);
 
         /// <summary>
         /// run SQL and return result table
         /// </summary>
-        /// <param name="sql"></param>
+        /// <param name="sqlQuery"></param>
         /// <returns>dataTable with result table or null</returns>
-        DataTable RunSql(string sql);
+        DataTable RunSql(string sqlQuery);
 
         string GetExtension();
         string GetWildcard();
